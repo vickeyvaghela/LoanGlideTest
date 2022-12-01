@@ -10,4 +10,5 @@ Please complete the project within 5 business days (a calendar week) and fill ou
 We will get back to you for the next steps after we evaluating your project.
 
 Thank you and good luck !
-// this is not 100 done
+
+this is not 100% done
