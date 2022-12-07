@@ -34,41 +34,32 @@ function mergeTwoStrings(stringOne, stringTwo){
 
 
 //merge two strings
-let mergedString = sort(mergeTwoStrings("zxyw","dbca"))
+let mergedString = sort(mergeTwoStrings("zxyw","dbcaopqr"))
 
 
-
-
-function buildFiveLetterWords() {
+function buildFiveLetterWords(){
     let mergedAry = mergedString.split("")
-
-    let wordAry = [];
-
-    while (mergedAry.length > 0) {
-        let fiveLtrAry = [];
-        let fiveChar = ''
-        let vovelCount = 0;
-        let counter = 0;
-        while (fiveLtrAry.length<=5 && mergedAry[counter]) {
-            
-            fiveLtrAry.push(mergedAry[counter])
-
-            fiveChar+= mergedAry[counter]
-
-            mergedAry = removeItemFromAry(mergedAry, mergedAry[counter])
-
-            counter++
+    let finalAry = []
+    for (let i = 0; i < mergedAry.length; i++) {
+        let tmpAry = []
+        while (tmpAry.length<5) {
+            tmpAry.push(mergedAry[0]) 
+            mergedAry = removeItemFromAry(mergedAry, mergedAry[0])
         }
-        wordAry.push(fiveChar)
+        finalAry.push(tmpAry)
     }
-
-    return wordAry
+    finalAry.push(mergedAry)
     
+
+    let finalString = ''
+    for (let i = 0; i < finalAry.length; i++) { 
+        for (let j = 0; j < finalAry[i].length; j++) { 
+            finalString+=finalAry[i][j]
+        }
+        finalString+=' '   
+    }
+    return finalString.trim()
 }
-
-let resss = buildFiveLetterWords();
-console.log('resss',resss);
-
 
 function removeItemFromAry(array, item){
     let index = array.indexOf(item);
@@ -79,6 +70,11 @@ function removeItemFromAry(array, item){
     }
     return array
 }
+
+
+let fiveLatterWords = buildFiveLetterWords();
+console.log('fiveLatterWords',fiveLatterWords);
+
 
 
 
